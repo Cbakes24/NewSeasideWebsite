@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import 
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -18,7 +18,8 @@ export default function Header() {
 
   return (
     <header className="w-full py-4 px-4 flex justify-between items-center border-b bg-white shadow-sm sticky top-0 z-50">
-      <Link href="/" className="text-xl text-peach font-bold tracking-wide">🎬 Seaside Cinema</Link>
+        
+      <Link href="/" className="text-xl text-peach-500 font-bold tracking-wide"> Seaside Cinema</Link>
 
       <nav className="hidden sm:flex space-x-6">
         {navItems.map(({ href, label }) => (
