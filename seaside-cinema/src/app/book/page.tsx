@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function BookingPage() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
-  const rotations = [-25, -15, -5, 5, 15, 25];
+  const rotations = [-15, -5, 5, 15, 25];
   return (
-    <main className="min-h-screen bg-teal text-gray-800 px-4 py-10">
+    <main className="min-h-screen bg-peach text-gray-800 px-4 py-10">
       <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold text-teal mb-6 text-center">
           Book Your Experience
@@ -143,7 +143,7 @@ export default function BookingPage() {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-peach text-white font-semibold py-3 rounded hover:bg-orange transition"
+            className="w-full bg-teal text-white font-semibold py-3 rounded hover:bg-orange transition"
           >
             Submit Booking
           </button>
