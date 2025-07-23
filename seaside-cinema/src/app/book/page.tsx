@@ -50,7 +50,7 @@ export default function BookingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-peach text-gray-800 px-4 py-10">
+    <main className="min-h-screen bg-sand text-gray-800 px-4 py-10">
       <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold text-teal mb-6 text-center">
           Book Your Experience

@@ -44,7 +44,7 @@ Add-ons: ${addons?.join(', ') || 'None'}
       console.error('Resend error:', error);
       return NextResponse.json({ error }, { status: 500 });
     }
-
+    console.log('Resend data:', data);
     return NextResponse.json({ status: 'success', data });
   } catch (error) {
     console.error('Server error:', error);
