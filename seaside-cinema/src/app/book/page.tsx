@@ -5,7 +5,15 @@ import Image from "next/image";
 
 export default function BookingPage() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
   const rotations = [-15, -5, 5, 15, 25];
+  const addonOptions = [
+    "Extra Blankets",
+    "Charcuterie Board",
+    "Tiki Torches",
+    "Extra Hour",
+    "Projector + Movie Setup"
+  ];
   return (
     <main className="min-h-screen bg-peach text-gray-800 px-4 py-10">
       <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
@@ -117,26 +125,22 @@ export default function BookingPage() {
           <fieldset>
             <legend className="block font-medium mb-2">Add-ons</legend>
             <div className="space-y-2">
-              <label className="flex items-center space-x-2">
-                <input type="checkbox" />
-                <span>Extra Blankets</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input type="checkbox" />
-                <span>Charcuterie Board</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input type="checkbox" />
-                <span>Tiki Torches</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input type="checkbox" />
-                <span>Extra Hour</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input type="checkbox" />
-                <span>Projector + Movie Setup</span>
-              </label>
+              {addonOptions.map((addon) => (
+                <label key={addon} className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    checked={selectedAddons.includes(addon)}
+                    onChange={e => {
+                      setSelectedAddons(prev =>
+                        e.target.checked
+                          ? [...prev, addon]
+                          : prev.filter(a => a !== addon)
+                      );
+                    }}
+                  />
+                  <span>{addon}</span>
+                </label>
+              ))}
             </div>
           </fieldset>
 
