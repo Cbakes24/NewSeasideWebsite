@@ -57,12 +57,12 @@ export default function BookingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-sand text-gray-800 px-4 py-10">
+    <main className="min-h-screen bg-peach text-gray-800 px-4 py-10">
       <div className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold text-teal mb-6 text-center">
           Book Your Experience
         </h1>
-        {/* Fan */}
+        {/* Fan w-whatever num you want the width*/}
         <div className="relative w-40 max-w-[320px] aspect-square mx-auto flex justify-center items-center mb-25 sm:mb-14 sm:w-80 lg:mb-20">
           {rotations.map((deg: number, idx: number) => {
             const isActive = activeIdx === idx;
@@ -81,10 +81,10 @@ export default function BookingPage() {
                 fill
                 className="object-cover rounded-lg shadow-md p-5 bg-offwhite absolute top-0 left-0 transition-transform duration-300 cursor-pointer"
                 style={{
-                  zIndex: isActive ? 99 : idx,
+                  zIndex: isActive ? 300 : idx,
                   left: `${leftPx}px`,
-                  top: `${Math.abs(idx - 2) * 28}px`, //fan shape
-                  transform: `rotate(${deg}deg) translateY(${isActive ? "10px" : "0"})`,
+                  top: `${Math.abs(idx - 2) * 32}px`, //fan shape***
+                  transform: `rotate(${isActive ? 0 : deg}deg)  translateY(${isActive ? "-50px" : "0"})`,
                   pointerEvents: isActive ? 'none' : 'auto',
                 }}
                 onMouseEnter={() => setActiveIdx(idx)}
