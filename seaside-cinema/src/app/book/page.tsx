@@ -16,7 +16,14 @@ export default function BookingPage() {
   const [guestCount, setGuestCount] = useState('');
   const [style, setStyle] = useState('Classic');
   const [occasion, setOccasion] = useState('');
-  const rotations = [-15, -5, 5, 15, 25];
+  const [eventImages, setEventImages] = useState([
+    "/vday3.jpg",
+    "/big_bali.JPG",
+    "/IMG_1255.jpeg",
+    "/poolsBday5.JPG",
+    "/verticalSunset.jpeg",
+  ]);
+  const rotations = [-30, -15, 0, 15, 30];
   const addonOptions = [
     "Extra Blankets",
     "Charcuterie Board",
@@ -55,28 +62,29 @@ export default function BookingPage() {
         <h1 className="text-2xl font-bold text-teal mb-6 text-center">
           Book Your Experience
         </h1>
-        <div className="relative w-2/3 max-w-[320px] aspect-square mx-auto flex justify-center items-center mb-25 sm:mb-14 lg:mb-20">
+        {/* Fan */}
+        <div className="relative w-40 max-w-[320px] aspect-square mx-auto flex justify-center items-center mb-25 sm:mb-14 sm:w-80 lg:mb-20">
           {rotations.map((deg: number, idx: number) => {
             const isActive = activeIdx === idx;
-            let offset = 30, imageWidth = 30;
+            let offset = 50, imageWidth = 60;
             if (typeof window !== 'undefined') {
               if (window.innerWidth >= 1024) { offset = 100; imageWidth = 240; }
-              else if (window.innerWidth >= 640) { offset = 40; imageWidth = 50; }
+              else if (window.innerWidth >= 640) { offset = 40; imageWidth = 60; }
             }
-            const fanWidth = (rotations.length - 1) * offset + imageWidth;
-            const leftPx = idx * offset - (fanWidth - imageWidth) / 2;
+            const fanWidth = (rotations.length -2) * offset + imageWidth;
+            const leftPx = idx * offset - (fanWidth - imageWidth) / 1.5;
             return (
               <Image
                 key={idx}
-                src="/verticalSunset.jpeg"
+                src={eventImages[idx]}
                 alt="Sunset"
                 fill
                 className="object-cover rounded-lg shadow-md p-5 bg-offwhite absolute top-0 left-0 transition-transform duration-300 cursor-pointer"
                 style={{
                   zIndex: isActive ? 99 : idx,
                   left: `${leftPx}px`,
-                  top: `${Math.abs(idx - 2.5) * 8}px`,
-                  transform: `rotate(${deg}deg) translateY(${isActive ? "-30px" : "0"})`,
+                  top: `${Math.abs(idx - 2) * 28}px`, //fan shape
+                  transform: `rotate(${deg}deg) translateY(${isActive ? "10px" : "0"})`,
                   pointerEvents: isActive ? 'none' : 'auto',
                 }}
                 onMouseEnter={() => setActiveIdx(idx)}
